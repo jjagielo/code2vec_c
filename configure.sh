@@ -13,26 +13,24 @@
 # DM19-0540
 ###########################################################
 # Change the following values to preprocess a new dataset.
-# NUM_THREADS - the number of parallel threads to use. It is 
-#   recommended to use a multi-core machine for the preprocessing 
+# NUM_THREADS - the number of parallel threads to use. It is
+#   recommended to use a multi-core machine for the preprocessing
 #   step and set this value to the number of cores.
 # PYTHON - python3 interpreter alias.
 ###########################################################
-
 # External dependencies
 # CLANG_PATH - should be set to the location of lib clang
-CLANG_PATH=/usr/lib/llvm-6.0/lib/libclang.so
+CLANG_PATH=/usr/lib/llvm-18/lib/libclang.so
 # CODE2VEC_LOC - should be the location of base codevec
-CODE2VEC_LOC=/data/code2vec
+CODE2VEC_LOC=/mnt/c/Users/jjagi/Desktop/school/mlir-embedding/deps/code2vec
 # SOURCE_DIR - top level folder for C source files
-SOURCE_DIR=/data/git-repos
-
+SOURCE_DIR=/mnt/c/Users/jjagi/Desktop/school/mlir-embedding/test/gemm
 ### Give or use less resources
 # MEM_PERCENT - for configurable commands like sort limit increase memory percentage to use
 MEM_PERCENT=75
 # NUM_PROCESSORS - for configurable commands like sort raise the number of processors to use
-NUM_PROCESSORS=2 
-# MAX_LEAVES - maximum number of leaves in an AST for parsing 
+NUM_PROCESSORS=4
+# MAX_LEAVES - maximum number of leaves in an AST for parsing
 #    (default 32, remeber function complexity is ~ leaves^2)
 MAX_LEAVES=32
 # DOWNSAMPLE - Reduce the size of the dataset.  Change to a percentage (ex. DOWNSAMPLE=.8)
@@ -40,25 +38,22 @@ MAX_LEAVES=32
 DOWNSAMPLE=1
 # SKIP_DECLS - Comment out this line to tag function decls instead of skipping them.
 SKIP_DECLS=--skip-decls true
-
 # code2vec parameters
-# DATASET_NAME is just a name for the currently extracted dataset.                                              
-# MAX_CONTEXTS is the number of contexts to keep for each 
-#   method (by default 200).                              
-# WORD_VOCAB_SIZE, PATH_VOCAB_SIZE, TARGET_VOCAB_SIZE -   
-#   - the number of words, paths and target words to keep 
-#   in the vocabulary (the top occurring words and paths will be kept). 
-#   The default values are reasonable for a Tesla K80 GPU 
+# DATASET_NAME is just a name for the currently extracted dataset.
+# MAX_CONTEXTS is the number of contexts to keep for each
+#   method (by default 200).
+# WORD_VOCAB_SIZE, PATH_VOCAB_SIZE, TARGET_VOCAB_SIZE -
+#   - the number of words, paths and target words to keep
+#   in the vocabulary (the top occurring words and paths will be kept).
+#   The default values are reasonable for a Tesla K80 GPU
 #   and newer (12 GB of board memory).
-
-DATASET_NAME=git-repos-32
+DATASET_NAME=gemm
 MAX_CONTEXTS=200
 WORD_VOCAB_SIZE=1301136
 PATH_VOCAB_SIZE=911417
 TARGET_VOCAB_SIZE=261245
-NUM_THREADS=64
+NUM_THREADS=4
 PYTHON=python3
-
 # Don't edit below this line
 CODE2VEC_LOC=$(realpath ${CODE2VEC_LOC})
 CLANG_PATH=$(realpath ${CLANG_PATH})
