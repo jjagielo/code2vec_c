@@ -24,7 +24,7 @@ CLANG_PATH=/usr/lib/llvm-18/lib/libclang.so
 # CODE2VEC_LOC - should be the location of base codevec
 CODE2VEC_LOC=/mnt/c/Users/jjagi/Desktop/school/mlir-embedding/deps/code2vec
 # SOURCE_DIR - top level folder for C source files
-SOURCE_DIR=/mnt/c/Users/jjagi/Desktop/school/mlir-embedding/test/gemm
+SOURCE_DIR=/mnt/c/Users/jjagi/Desktop/school/mlir-embedding/test
 ### Give or use less resources
 # MEM_PERCENT - for configurable commands like sort limit increase memory percentage to use
 MEM_PERCENT=75
@@ -32,7 +32,7 @@ MEM_PERCENT=75
 NUM_PROCESSORS=4
 # MAX_LEAVES - maximum number of leaves in an AST for parsing
 #    (default 32, remeber function complexity is ~ leaves^2)
-MAX_LEAVES=32
+MAX_LEAVES=128
 # DOWNSAMPLE - Reduce the size of the dataset.  Change to a percentage (ex. DOWNSAMPLE=.8)
 # to only use a portion of the available features.
 DOWNSAMPLE=1
@@ -47,7 +47,7 @@ SKIP_DECLS=--skip-decls true
 #   in the vocabulary (the top occurring words and paths will be kept).
 #   The default values are reasonable for a Tesla K80 GPU
 #   and newer (12 GB of board memory).
-DATASET_NAME=gemm
+DATASET_NAME=kernels
 MAX_CONTEXTS=200
 WORD_VOCAB_SIZE=1301136
 PATH_VOCAB_SIZE=911417
